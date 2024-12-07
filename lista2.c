@@ -234,7 +234,25 @@ printf("Menor de idade");
 //13. Faça um programa que permita entrar com o nome, a nota da prova 1 e a nota da
 //prova 2 de umaluno. O programa deve imprimir o nome, a nota da prova 1, a nota da prova 2, a média das notas e uma das mensagens: "Aprovado", "Reprovado"ou "em Prova Final"(a média é 7 para aprovação, menor que 3 para reprovação e as demais em prova final).
 void questao13() {
-	
+	float p1, p2, media;
+	char nome [30];
+	printf("Nome do aluno: ");
+	scanf("%30[^\n]", nome);
+	printf("Digite a nota da prova 1: ");
+	scanf("%f",&p1);
+	printf("Digite a nota da prova 2: ");
+	scanf("%f",&p2);
+	media = (p1 + p2) / 2;
+	printf("-------------------------Dados-----------------------\n");
+	printf("Aluno: %s \n", nome);
+	printf("Notas - P1: %f P2: %f \n", p1, p2);
+	printf("Media: %f \n", media);
+	if (media >= 7)
+	printf("Aprovado");
+else if (media >= 3)
+printf("Prova final");
+else
+printf("\nReprovado");
 }
 
 //14. Faça um programa que permita entrar com o salário de uma pessoa e imprima o
@@ -245,13 +263,32 @@ void questao13() {
 //Maior que R$1200,00 e menor ou igual a R$2000,00 25%
 //Maior que R$2000,00 30%
 void questao14() {
-	
+int salario;
+printf("Digite o salario: ");
+scanf("%d",&salario);
+if (salario <= 600)
+printf("Isento de INSS");
+else if (salario <= 1200)
+printf("20%-> %.2f", salario * 0.2);
+else if (salario <= 2000)
+printf("25%-> %.2f", salario * 0.25);
+else
+printf("30%-> %.2f", salario * 0.3);	
 }
 
 //15. Um comerciante comprou umproduto e quer vendê-lo com umlucro de 45% se o valor
 //da compra for menor que R$20,00, caso contrário, o lucro será de 30%. Faça um programa que leia o valor do produto e imprima o valor da venda.
 void questao15() {
-	
+	float vlrProduto, vlrVenda;
+	printf("Digite o valor do produto: ");
+	scanf("%f", &vlrProduto);
+	if (vlrProduto < 20) {
+	vlrVenda = vlrProduto + (vlrProduto * 0.45);
+	}
+	else {
+		vlrVenda = vlrProduto + (vlrProduto * 0.3);
+		}
+		printf("Valor do produto para venda: %.2f \n", vlrVenda);
 }
 
 //16. A confederação brasileira de natação irá promover eliminatórias para o próximo
@@ -263,7 +300,23 @@ void questao15() {
 //Juvenil B 14 - 17 anos
 //Sênior maiores de 18 anos
 void questao16() {
-	
+	int idade;
+	printf("Digite a idade: ");
+	scanf("%d", &idade);
+	if (idade <= 4)
+	printf("Idade nao permitida");
+else {
+	if (idade <= 7)
+	printf("Infantil A");
+else if (idade <= 10)
+printf("Infantil B");
+else if (idade <= 13)
+printf("Juvenil A");
+else if (idade <= 17)
+printf("Juvenil B");
+else
+printf("Senior");
+}
 }
 
 //17. Depois da liberação do governo para as mensalidades dos planos de saúde, as pessoas começaram a fazer pesquisas para descobrir um bom plano, não muito caro. Umvendedor de um plano de saúde apresentou a tabela a seguir. Faça um programa que entre com o nome e a idade de uma pessoa e imprima o nome e o valor que ela deverá pagar.
@@ -275,12 +328,70 @@ void questao16() {
 //Acima de 59 até 65 anos R$250,00
 //Maior que 65 anos R$400,00
 void questao17() {
-	
+	char nome[100];
+ int idade;
+ printf("Digite o nome: ");
+ scanf("%s", &nome);
+ printf("Digite a idade: ");
+ scanf("%d", &idade);
+ if (idade <= 10)
+ printf("Valor: 30 reais");
+ else if (idade <= 29)
+ printf("Valor: 60 reais");
+ else if (idade <= 45)
+ printf("Valor: 120 reais");
+ else if (idade <= 59)
+ printf("Valor: 150 reais");
+ else if (idade <= 65)
+ printf("Valor: 250 reais");
+ else
+ printf("Valor: 400 reais");
 }
 
 //18. Faça um programa que leia um número inteiro entre 1 e 12 e escreva o mês correspondente. Caso o usuário digite umnúmero fora desse intervalo, deverá aparecer uma mensagem informando que não existe mês com este número. Utilize o switch para este problema.
 void questao18() {
-	
+	int mes;
+ printf("Digite o mes: ");
+ scanf("%d",&mes);
+ switch (mes) {
+ case 1:
+ printf("Janeiro \n");
+ break;
+ case 2:
+ printf("Fevereiro \n");
+ break;
+ case 3:
+ printf("Marco \n");
+ break;
+ case 4:
+ printf("Abril \n");
+ break;
+ case 5: printf("Maio \n");
+ break;
+ case 6:
+ printf("Junho \n");
+ break;
+ case 7:
+ printf("Julho \n");
+ break;
+ case 8:
+ printf("Agosto \n");
+ break;
+ case 9:
+ printf("Setembro \n");
+ break;
+ case 10:
+ printf("Outubro \n");
+ break;
+ case 11:
+ printf("Novembro \n");
+ break;
+ case 12:
+ printf("Dezembro \n");
+ break;
+ default:
+printf("Mes invalido! \n");
+ }
 }
 
 //19. Em um campeonato nacional de arco-e-flecha, tem-se equipes de três jogadores para cada estado. Sabendo-se que os arqueiros de uma equipe não obtiveram o mesmo número de pontos, criar um programa que informe se uma equipe foi classificada, de acordo com a seguinte especificação:
@@ -288,7 +399,33 @@ void questao18() {
 //• Mostrar esses valores em ordem decrescente;
 //• Se a soma dos pontos for maior do que 100, imprimir a média aritmética entre eles, caso contrário, imprimir a mensagem "Equipe desclassificada".
 void questao19() {
-	
+	float n1, n2, n3;
+ printf("Digite os pontos do primeiro atleta: ");
+ scanf("%f",&n1);
+ printf("Digite os pontos do segundo atleta: ");
+ scanf("%f",&n2);1 printf("Digite os pontos do terceiro atleta: ");
+ scanf("%f",&n3);
+ if (n1 < n2 && n1 < n3) { if (n2 < n3)
+ printf("%f, %f, %f", n1, n2, n3);
+ else printf("%f, %f, %f", n1, n3, n2);
+ }
+ else if (n2 < n1 && n2 < n3) {
+ if (n1 < n3)
+ printf("%f, %f, %f", n2, n1, n3);
+ else
+ printf("%f, %f, %f", n2, n3, n1);
+ }
+ else {
+ if (n2 < n1)
+ printf("%f, %f, %f", n3, n2, n1);
+ else
+ printf("%f, %f, %f", n3, n1, n2);
+ }
+ float media = (n1 + n2 + n3) / 3;
+ if ((n1 + n2 + n3) >= 100)
+ printf("\n%.2f", media);
+ else
+ printf("\nEquipe desclassificada");
 }
 
 //20. O banco XXX concederá um crédito especial com juros de 2% aos seus clientes de acordo com o saldomédio no último ano. Faça um programa que leia o saldo médio de um cliente e calcule o valor do crédito de acordo com a tabela a seguir. O programa deve imprimir uma mensagem informando o saldo médio e o valor de crédito.
@@ -298,7 +435,17 @@ void questao19() {
 //de 1001 a 3000 40% do valor do saldo médio
 //acima de 3001 50% do valor do saldo médio
 void questao20() {
-	
+int saldo;
+ printf("Digite o saldo: ");
+ scanf("%d",&saldo);
+ if (saldo <= 500)
+ printf("Nenhum credito");
+ else if (saldo <= 1000)
+ printf("Saldo: %d - Credito: %f", saldo, saldo * 0.3);
+ else if (saldo <= 3000)
+ printf("Saldo: %d - Credito: %f", saldo, saldo * 0.4);
+ else
+ printf("Saldo: %d - Credito: %f", saldo, saldo * 0.5);	
 }
 
 //21. A biblioteca de uma Universidade deseja fazer um programa que leia o nome do livro que será emprestado, o tipo de usuário (professor ou aluno) e possa imprimir um recibo conforme mostrado a seguir. Considerar que o professor tem dez dias para devolver o livro e o aluno só três dias.
@@ -360,8 +507,56 @@ int main() {
 		case 5:
 			questao05();
 			break;			
-		case 10:
-			questao10();
+		case 6:
+			questao06();
+			break;
+			case 7:
+			questao07();
+			break;
+			case 8:
+			questao08();
+			break;
+			case 9:
+			questao09();
+			break;
+			case 11:
+			questao11();
+			break;
+			case 12:
+			questao12();
+			break;
+			case 13:
+			questao13();
+			break;
+			case 14:
+			questao14();
+			break;
+			case 15:
+			questao15();
+			break;
+			case 16:
+			questao16();
+			break;
+			case 17:
+			questao17();
+			break;
+			case 18:
+			questao18();
+			break;
+			case 19:
+			questao19();
+			break;
+			case 20:
+			questao20();
+			break;
+			case 21:
+			questao21();
+			break;
+			case 22:
+			questao22();
+			break;
+			case 23:
+			questao23();
 			break;
 		default:
 			printf("Opção inválida!");
